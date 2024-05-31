@@ -4,7 +4,7 @@ typedef long long int ll;
 long long int const MOD = 1e9 + 7;
 int const N = 10005;
 
-vector <int> G[N]; // adjacency list
+vector <int> G[N];
 int dist[N];
 map <int, vector <int>> MaxDist;
 
