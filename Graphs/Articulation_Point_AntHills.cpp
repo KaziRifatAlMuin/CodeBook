@@ -25,7 +25,6 @@ void DFS(int v, int par = -1){
             children++;
         }
         else{
-            
             low[v] = min(low[v], disc[child]);
         }
     }
