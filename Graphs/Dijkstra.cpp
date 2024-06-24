@@ -5,35 +5,29 @@ long long int const MOD = 1e9 + 7;
 int const N = 1e5 + 7;
 long long const INF = 1e18 + 7;
 
-vector <pair <ll, ll>> G[N+2];
-vector <ll> dist(N+2), pre(N+2);
+vector <pair <ll, ll>> G[N];
+ll dist[N], pre[N];
 
 struct info{
-    ll city, cost;
+    ll v, w;
     bool operator < (const info &p) const{
-        return cost > p.cost;
+        return w > p.w;
     }
 };
 
-void Dijkstra(ll source){
+void Dijkstra(ll u){
     for(ll i = 0; i < N; i++) dist[i] = INF;
     priority_queue <info> q;
-    info cur, next;
-    cur.city = source, cur.cost = 0;
-    pre[cur.city] = 0;
-    q.push(cur);
-    dist[source] = 0;
+    pre[u] = -1, dist[u] = 0;
+    q.push({u, dist[u]});
     while(!q.empty()){
-        cur = q.top();
+        info cur = q.top();
         q.pop();
-        ll cur_cost = dist[cur.city];
-        for(auto x : G[cur.city]){
-            next.city = x.first;
-            next.cost = x.second + cur_cost;
-            if(next.cost < dist[next.city]){
-                dist[next.city] = next.cost;
-                pre[next.city] = cur.city;
-                q.push(next);
+        for(auto x : G[cur.v]){
+            if(cur.w + x.second < dist[x.first]){
+                dist[x.first] = cur.w + x.second;
+                pre[x.first] = cur.v;
+                q.push({x.first, dist[x.first]});
             }
         }
     }
