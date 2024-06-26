@@ -2,7 +2,7 @@
 using namespace std;
 typedef long long int ll;
 long long int const MOD = 1e9 + 7;
-int const N = 2e5 + 7;
+int const N = 2e5 + 5;
 
 void solve()
 {
