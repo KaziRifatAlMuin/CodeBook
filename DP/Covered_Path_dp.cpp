@@ -7,7 +7,7 @@ void solve()
 {
     ll start, end, n, d;
     cin >> start >> end >> n >> d;
-    ll dp[n][1000];
+    ll dp[n][1000]; 
     ll const inf = 1e17;
     for(int i = 0; i < n; i++){
         for(int j = 0; j < 1000; j++){
@@ -15,7 +15,7 @@ void solve()
         }
     }
 
-    dp[0][start] = 0;
+    dp[0][start] = 0; // dp[pos][next] = maximum length of path till that position
 
     for(int i = 0; i < n - 1; i++){
         for(int j = 0; j < 1000; j++){
