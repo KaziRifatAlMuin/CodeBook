@@ -48,7 +48,8 @@ int main() {
     vector<vector<pair<int, int>>> result = sieve_prime_factors_with_counts(max_n);
     
     // Example: Printing prime factors and their counts for the number 100
-    int number = 100;
+    int number;
+    cin >> number;
     cout << "Prime factors and their counts for " << number << ":" << endl;
     for (auto& factor : result[number]) {
         cout << factor.first << "^" << factor.second << " ";
