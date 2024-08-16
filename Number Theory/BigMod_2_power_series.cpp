@@ -13,7 +13,7 @@ int const mod = 1e9 + 7;
 // bigsum(a, 5) = 1 + a * bigsum(a, 4)
 
 ll bigsum(ll a, ll n) {
-    if(n == 0 || n == 1) return n;
+    if(n == 0 || n == 1) return n % mod;
     if(n & 1) return ((a % mod) * bigsum(a % mod, n - 1) + 1) % mod;
     ll x = bigsum((a * a) % mod, n / 2);
     return (x + (a * x) % mod) % mod;
