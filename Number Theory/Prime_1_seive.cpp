@@ -8,7 +8,7 @@ vector <int> primes;
 
 void seive()
 {
-    NotPrime[1] = 1;
+    NotPrime[1] = 1; NotPrime[0] = 1;
     for(ll i = 4; i < N; i += 2) NotPrime[i] = 1;
     for(ll i = 3; i * i < N; i += 2){
         if(!NotPrime[i]){
